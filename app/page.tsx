@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowRight, Facebook, Instagram, Youtube, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Facebook, Instagram, Youtube, Mail, Sparkles, Heart, CircleUserRound } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 export const revalidate = 0;
@@ -43,14 +43,25 @@ export default async function Home() {
 
   return (
     <main>
-      <header className="nav shell">
-        <a className="brand" href="#top"><span className="brand-dot"/>Luna AI Diary</a>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#diary">Diary</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#collab">Collaboration</a>
-        </nav>
+      <header className="site-nav-wrap">
+        <div className="nav shell">
+          <a className="brand" href="#top" aria-label="Luna AI Diary home">
+            <span className="brand-avatar"><Image src="/images/hero.png" alt="Luna" fill sizes="24px" /></span>
+            <span>Luna AI Diary</span>
+          </a>
+
+          <nav aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a className="active" href="#diary">Diary</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#collab">Collaboration</a>
+          </nav>
+
+          <div className="nav-actions" aria-label="Quick actions">
+            <a href="#social" aria-label="Follow Luna"><Heart size={16} strokeWidth={1.6}/></a>
+            <a href="#about" aria-label="About Luna"><CircleUserRound size={16} strokeWidth={1.6}/></a>
+          </div>
+        </div>
       </header>
 
       <section id="top" className="hero shell">
